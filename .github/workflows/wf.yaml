@@ -6,6 +6,8 @@ on:
 
 jobs:
   Environment-Test:
+    permissions:
+      security-events: write 
     name: test
     runs-on: ubuntu-latest
     env:
