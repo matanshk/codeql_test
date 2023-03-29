@@ -16,13 +16,13 @@ jobs:
       - uses: actions/setup-go@v3
         name: Setup Go 
         with:
-          go-version: 1.16
+          go-version: 1.18
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
           languages: go
-          
+
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
 
