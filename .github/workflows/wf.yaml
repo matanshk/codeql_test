@@ -1,0 +1,30 @@
+
+name: Basic-Go-Testing
+
+on:
+  push:
+
+jobs:
+  Environment-Test:
+    name: test
+    runs-on: ubuntu-latest
+    env:
+      MY_ENV_VAR: vuln_test
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c
+  
+      - uses: actions/setup-go@v3
+        name: Setup Go 
+        with:
+          go-version: 1.16
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: go
+          
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
